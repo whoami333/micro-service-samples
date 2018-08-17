@@ -1,0 +1,12 @@
+server:
+  port: 18080
+
+spring:
+  application:
+    name: business1-consul-consumer
+  cloud:
+    consul:
+      host: localhost #default
+      port: 8500 #default
+      discovery:
+        register: false # as a consumer, don't need register itself discovery center
