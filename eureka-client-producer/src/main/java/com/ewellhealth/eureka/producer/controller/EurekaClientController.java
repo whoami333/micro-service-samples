@@ -1,4 +1,4 @@
-package com.ewellhealth.sample.controller;
+package com.ewellhealth.eureka.producer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -17,8 +17,11 @@ public class EurekaClientController {
 
     @RequestMapping(value = "/eureka", method = RequestMethod.GET)
     public String eurekaInfo() {
-        List<ServiceInstance> services = client.getInstances("sample-project");
-//        logger.info("serviceId"+instance.getServiceId()+"host:post="+instance.getHost()+":"+instance.getPort());
-        return "hello spring:" + services;
+        List<ServiceInstance> services = client.getInstances("eureka-producer");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (ServiceInstance service : services) {
+            stringBuilder.append(service.getUri() + "/" + service.getPort() + ",");
+        }
+        return "Hello spring:" + stringBuilder.toString();
     }
 }

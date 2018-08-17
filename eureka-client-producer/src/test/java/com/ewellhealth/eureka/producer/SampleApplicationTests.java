@@ -1,4 +1,4 @@
-package com.ewellhealth.sample;
+package com.ewellhealth.eureka.producer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

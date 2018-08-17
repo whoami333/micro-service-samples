@@ -1,4 +1,4 @@
-package com.ewellhealth.sample.swagger;
+package com.ewellhealth.eureka.producer.swagger;
 
 import com.google.common.collect.Sets;
 import org.springframework.context.annotation.Bean;

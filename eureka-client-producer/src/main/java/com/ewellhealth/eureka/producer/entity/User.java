@@ -1,4 +1,4 @@
-package com.ewellhealth.sample.entity;
+package com.ewellhealth.eureka.producer.entity;
 
 import lombok.Data;
 

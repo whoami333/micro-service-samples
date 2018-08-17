@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sample-project
+    name: eureka-producer
   datasource:
     url: jdbc:jtds:sqlserver://121.196.193.175:1433;DatabaseName=CloudHis_GXQ
     username: sa
@@ -8,6 +8,7 @@ spring:
     driver-class-name: net.sourceforge.jtds.jdbc.Driver
     hikari:
       connection-test-query: SELECT 1
+
 eureka:
   client:
     service-url:

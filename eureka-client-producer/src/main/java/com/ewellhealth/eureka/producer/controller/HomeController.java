@@ -1,4 +1,4 @@
-package com.ewellhealth.sample.controller;
+package com.ewellhealth.eureka.producer.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

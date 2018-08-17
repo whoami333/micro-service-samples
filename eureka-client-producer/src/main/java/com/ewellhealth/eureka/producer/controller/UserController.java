@@ -1,7 +1,7 @@
-package com.ewellhealth.sample.controller;
+package com.ewellhealth.eureka.producer.controller;
 
-import com.ewellhealth.sample.entity.JsonResult;
-import com.ewellhealth.sample.entity.User;
+import com.ewellhealth.eureka.producer.entity.JsonResult;
+import com.ewellhealth.eureka.producer.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 

@@ -1,6 +1,6 @@
-package com.ewellhealth.sample;
+package com.ewellhealth.eureka.producer;
 
-import com.ewellhealth.sample.controller.HomeController;
+import com.ewellhealth.eureka.producer.controller.HomeController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
