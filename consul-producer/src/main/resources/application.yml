@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: business1-consul-producer
+  cloud:
+    consul:
+      host: localhost #default
+      port: 8500 #default
+      discovery:
+        health-check-path: /actuator/health #default spring boot health
+        health-check-interval: 15s #default 10s
+
