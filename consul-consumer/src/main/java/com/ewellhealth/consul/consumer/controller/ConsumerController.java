@@ -2,6 +2,7 @@ package com.ewellhealth.consul.consumer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.consul.discovery.ConsulDiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,9 @@ import java.util.List;
 
 @RestController
 public class ConsumerController {
+    @Autowired
+    LoadBalancerClient loadBalancerClient;
+
     @Autowired
     private ConsulDiscoveryClient consulDiscoveryClient;
 
@@ -26,6 +30,6 @@ public class ConsumerController {
 
     @RequestMapping("/consumer/random")
     public String randomConsulResult() {
-        return "";
+        return loadBalancerClient.choose("business1-consul-producer").getUri().toString();
     }
 }
