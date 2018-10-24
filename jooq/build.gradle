@@ -1,0 +1,109 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+    }
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'nu.studer:gradle-jooq-plugin:2.0.11'
+
+    }
+}
+apply plugin: 'nu.studer.jooq'
+
+//
+//plugins {
+//    id 'nu.studer.jooq' version '3.0.2'
+//}
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.ewellhealth'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-jooq')
+    // For JDK 9 and above
+    // compile('com.sun.xml.bind:jaxb-impl:+')
+    // compile('javax.xml.bind:jaxb-api:+')
+    runtimeOnly('mysql:mysql-connector-java')
+    jooqRuntime('mysql:mysql-connector-java')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+jooq {
+    version = '3.11.2'
+    edition = 'OSS'
+    sample(sourceSets.main) {
+        jdbc {
+            driver = 'com.mysql.jdbc.Driver'
+            url = 'jdbc:mysql://localhost:3306/jooq'
+            user = 'root'
+            password = ''
+//            properties {
+//                property {
+//                    key = 'ssl'
+//                    value = 'true'
+//                }
+//            }
+        }
+        generator {
+            //jOOQ library <= 3.10.x: gradle-jooq plugin 2.0.11
+            //jOOQ library >= 3.11.x: gradle-jooq plugin 3.0.0 or higher
+            // If plugin version 2.0.x
+            name = 'org.jooq.util.DefaultGenerator' //2.0.11
+            // else
+            // name = 'org.jooq.codegen.DefaultGenerator'
+//            strategy {
+//                name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+//                // ...
+//            }
+            database {
+                name = 'org.jooq.util.mysql.MySQLDatabase'
+                includes = '.*'
+                excludes = ''
+//                inputSchema = 'public'
+//                forcedTypes {
+//                    forcedType {
+//                        name = 'varchar'
+//                        expression = '.*'
+//                        types = 'JSONB?'
+//                    }
+//                    forcedType {
+//                        name = 'varchar'
+//                        expression = '.*'
+//                        types = 'INET'
+//                    }
+//                }
+                // ...
+            }
+//            generate {
+//                relations = true
+//                deprecated = false
+//                records = true
+//                immutablePojos = true
+//                fluentSetters = true
+//                // ...
+//            }
+            target {
+                packageName = 'com.ewellhealth.jooq.autogen'
+            }
+        }
+    }
+}
