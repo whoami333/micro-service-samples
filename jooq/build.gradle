@@ -11,8 +11,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("nu.studer:gradle-jooq-plugin:3.0.2")
-        classpath("org.jooq:jooq-codegen")
+        classpath("nu.studer:gradle-jooq-plugin:2.0.11")
+//        classpath("org.jooq:jooq-codegen")
     }
 }
 apply plugin: 'nu.studer.jooq'
@@ -39,8 +39,8 @@ repositories {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
-//    implementation('org.springframework.boot:spring-boot-starter-jooq')
-    implementation('org.jooq:jooq')
+    implementation('org.springframework.boot:spring-boot-starter-jooq')
+//    implementation('org.jooq:jooq:3.11.5')
 
     // For JDK 9 and above
     // implementation('com.sun.xml.bind:jaxb-impl:+')
@@ -70,9 +70,9 @@ jooq {
             //jOOQ library <= 3.10.x: gradle-jooq plugin 2.0.11
             //jOOQ library >= 3.11.x: gradle-jooq plugin 3.0.0 or higher
             // If plugin version 2.0.x
-//            name = 'org.jooq.util.DefaultGenerator' // Plugin 2.0.11
+            name = 'org.jooq.util.DefaultGenerator' // Plugin 2.0.11
             // else
-            name = 'org.jooq.codegen.DefaultGenerator' // Plugin 3.0.2
+//            name = 'org.jooq.codegen.DefaultGenerator' // Plugin 3.0.2
             database {
                 name = 'org.jooq.util.mysql.MySQLDatabase'
                 includes = '.*'
@@ -82,7 +82,7 @@ jooq {
             target {
                 directory = 'src/main/java'
                 packageName = 'com.ewellhealth.jooq.autogen'
-                clean = true // Plugin 3.0.x
+//                clean = true // Plugin 3.0.x
             }
         }
     }

@@ -4,6 +4,7 @@
 package com.ewellhealth.jooq.autogen;
 
 
+import com.ewellhealth.jooq.autogen.tables.Author;
 import com.ewellhealth.jooq.autogen.tables.Username;
 
 import javax.annotation.Generated;
@@ -30,6 +31,7 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index AUTHOR_PRIMARY = Indexes0.AUTHOR_PRIMARY;
     public static final Index USERNAME_PRIMARY = Indexes0.USERNAME_PRIMARY;
 
     // -------------------------------------------------------------------------
@@ -37,6 +39,7 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index AUTHOR_PRIMARY = Internal.createIndex("PRIMARY", Author.AUTHOR, new OrderField[] { Author.AUTHOR.ID }, true);
         public static Index USERNAME_PRIMARY = Internal.createIndex("PRIMARY", Username.USERNAME, new OrderField[] { Username.USERNAME.ID }, true);
     }
 }

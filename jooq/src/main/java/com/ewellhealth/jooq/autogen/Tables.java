@@ -4,6 +4,7 @@
 package com.ewellhealth.jooq.autogen;
 
 
+import com.ewellhealth.jooq.autogen.tables.Author;
 import com.ewellhealth.jooq.autogen.tables.Username;
 
 import javax.annotation.Generated;
@@ -21,6 +22,11 @@ import javax.annotation.Generated;
 )
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>jooq.author</code>.
+     */
+    public static final Author AUTHOR = com.ewellhealth.jooq.autogen.tables.Author.AUTHOR;
 
     /**
      * The table <code>jooq.username</code>.

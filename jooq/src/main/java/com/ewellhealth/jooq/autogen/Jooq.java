@@ -4,6 +4,7 @@
 package com.ewellhealth.jooq.autogen;
 
 
+import com.ewellhealth.jooq.autogen.tables.Author;
 import com.ewellhealth.jooq.autogen.tables.Username;
 
 import java.util.ArrayList;
@@ -30,12 +31,17 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Jooq extends SchemaImpl {
 
-    private static final long serialVersionUID = -1402097196;
+    private static final long serialVersionUID = 744739050;
 
     /**
      * The reference instance of <code>jooq</code>
      */
     public static final Jooq JOOQ = new Jooq();
+
+    /**
+     * The table <code>jooq.author</code>.
+     */
+    public final Author AUTHOR = com.ewellhealth.jooq.autogen.tables.Author.AUTHOR;
 
     /**
      * The table <code>jooq.username</code>.
@@ -67,6 +73,7 @@ public class Jooq extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+            Author.AUTHOR,
             Username.USERNAME);
     }
 }

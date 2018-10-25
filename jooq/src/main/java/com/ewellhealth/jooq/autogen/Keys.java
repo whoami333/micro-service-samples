@@ -4,7 +4,9 @@
 package com.ewellhealth.jooq.autogen;
 
 
+import com.ewellhealth.jooq.autogen.tables.Author;
 import com.ewellhealth.jooq.autogen.tables.Username;
+import com.ewellhealth.jooq.autogen.tables.records.AuthorRecord;
 import com.ewellhealth.jooq.autogen.tables.records.UsernameRecord;
 
 import javax.annotation.Generated;
@@ -36,6 +38,7 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<AuthorRecord> KEY_AUTHOR_PRIMARY = UniqueKeys0.KEY_AUTHOR_PRIMARY;
     public static final UniqueKey<UsernameRecord> KEY_USERNAME_PRIMARY = UniqueKeys0.KEY_USERNAME_PRIMARY;
 
     // -------------------------------------------------------------------------
@@ -48,6 +51,7 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class UniqueKeys0 {
+        public static final UniqueKey<AuthorRecord> KEY_AUTHOR_PRIMARY = Internal.createUniqueKey(Author.AUTHOR, "KEY_author_PRIMARY", Author.AUTHOR.ID);
         public static final UniqueKey<UsernameRecord> KEY_USERNAME_PRIMARY = Internal.createUniqueKey(Username.USERNAME, "KEY_username_PRIMARY", Username.USERNAME.ID);
     }
 }
