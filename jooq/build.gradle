@@ -29,15 +29,6 @@ repositories {
     mavenCentral()
 }
 
-dependencyManagement {
-    // io.spring.dependency-management would effect 3.10.8 as default
-    dependencies {
-        dependency ('org.jooq:jooq:3.11.5')
-        dependency ('org.jooq:jooq-codegen:3.11.5')
-        dependency ('org.jooq:jooq-meta:3.11.5')
-    }
-}
-
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-jooq')
